@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/criminalButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_criminal"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="Criminal Cases"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/departamentsButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_departaments"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="Departments"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/wantedButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_wanted"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="Wanted"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/detectivesButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_detectives"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="Detectives"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/photorobotButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_photorobot"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="PhotoRobot"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/paintButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_paint"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="Paint"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/aboutButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_about"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="About Us"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/main_button"
+            android:drawableStart="@drawable/ic_logout"
+            android:drawablePadding="20dp"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingHorizontal="10dp"
+            android:text="Logout"
+            android:textAlignment="viewStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
