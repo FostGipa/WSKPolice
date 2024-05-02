@@ -67,6 +67,8 @@ class SignInActivity : AppCompatActivity() {
             })
         }
 
+        // Hello
+
         binding.guestButton.setOnClickListener {
             editor.putBoolean("authorized", false)
             editor.apply()
