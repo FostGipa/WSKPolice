@@ -12,6 +12,9 @@ import com.example.wspolicy.models.UserData
 import com.example.wspolicy.databinding.ActivitySignInBinding
 import com.example.wspolicy.retrofit.RetrofitClient
 import com.google.gson.Gson
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,38 +39,31 @@ class SignInActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
 
         binding.signinButton.setOnClickListener {
-            val call = RetrofitClient.apiService.login(binding.loginEditText.text.toString(), binding.passwordEditText.text.toString())
 
-            call.enqueue(object : Callback<UserData> {
-                override fun onResponse(call: Call<UserData>, response: Response<UserData>) {
-                    if (response.isSuccessful) {
-                        val responseData = response.body()
-                        if (responseData != null) {
-                            val userData = Gson().fromJson(Gson().toJson(responseData), UserData::class.java)
 
-                            val userId = userData.data.id
-                            val userLogin = userData.data.login
-                            val userName = userData.data.name
-                            val userToken = userData.data.token
-                            editor.putBoolean("authorized", true)
-                            editor.apply()
-                            startActivity(Intent(this@SignInActivity, MainActivity::class.java))
-                        } else {
-                            Toast.makeText(this@SignInActivity, "", Toast.LENGTH_SHORT).show()
-                        }
-
-                    } else {
-                        Toast.makeText(this@SignInActivity, "Ошибка подключения к серверу", Toast.LENGTH_SHORT).show()
-                    }
+            GlobalScope.launch(Dispatchers.Main) {
+                val response = RetrofitClient.apiService.login(binding.loginEditText.text.toString(), binding.passwordEditText.text.toString())
+                if (response.isSuccessful) {
+                    val responseData = response.body()
+                    Toast.makeText(this@SignInActivity, responseData?.data?.id, Toast.LENGTH_SHORT).show()
+                    editor.putBoolean("authorized", true)
+                    editor.apply()
+                    startActivity(Intent(this@SignInActivity, MainActivity::class.java))
                 }
-
-                override fun onFailure(call: Call<UserData>, t: Throwable) {
-                    Toast.makeText(this@SignInActivity, "Ошибка подключения к серверу", Toast.LENGTH_SHORT).show()
-                }
-            })
+            }
         }
 
         // Hello
+        /*
+        val userData = Gson().fromJson(Gson().toJson(responseData), UserData::class.java)
+
+        val userId = userData.data.id
+        val userLogin = userData.data.login
+        val userName = userData.data.name
+        val userToken = userData.data.token
+        editor.putBoolean("authorized", true)
+        editor.apply()
+        startActivity(Intent(this@SignInActivity, MainActivity::class.java)) */
 
         binding.guestButton.setOnClickListener {
             editor.putBoolean("authorized", false)

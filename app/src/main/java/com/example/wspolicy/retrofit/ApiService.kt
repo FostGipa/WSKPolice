@@ -11,10 +11,10 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("/api/login/")
-    fun login(
+    suspend fun login(
         @Query("login") login: String,
         @Query("password") password: String
-    ): Call<UserData>
+    ): Response<UserData>
 
     @GET("/api/department")
     suspend fun departments(): Response<Departments>
